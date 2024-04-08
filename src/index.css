@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+  .underline-transition{
+    @apply before:absolute before:bottom-0 before:bg-[#212121] before:h-[1.2px] before:w-full before:right-0 hover:before:w-0 before:duration-300
+    after:absolute after:bottom-0 after:bg-[#212121] after:h-[1.4px] after:w-0 after:left-0 hover:after:w-full after:duration-300 after:delay-300
+  }
+}
+
+:root{
+  --border-dark:#afadad;
+  --border-green:#99ad53;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &::-webkit-scrollbar{
+    display:none;
+  }
+}
+ body{
+  position:relative;
+ }
+
+/* For Swiper Cards */
+.swiper {
+  width: 90%;
+}
+
+/* End of Swiper Cards */
+
+
+@font-face {
+  font-family: Grotesk;
+  src: url("./assets/FoundersGrotesk.ttf");
+}
+@font-face {
+  font-family: icomoon;
+  src: url("./assets/icomoon.ttf");
+}
+@font-face {
+  font-family: NeueMontereal;
+  src: url("./assets/NeueMontreal.ttf");
+}
+.grotesk {
+  font-family: Grotesk;
+}
+.icomoon {
+  font-family: icomoon;
+}
+.montereal {
+  font-family: NeueMontereal;
+}
+.marquee-text {
+  animation: linemove 10s linear infinite;
+}
+
+.linerotate1{
+  translate:5px;
+  animation:rotate1 .25s .2s linear;
+}
+.linerotate2{
+  translate:5px -8px;
+  animation:rotate2 .25s .2s linear;
+}
+
+@keyframes rotate1 {
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform: rotate(45deg);
+  }
+}
+@keyframes rotate2 {
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform: rotate(-45deg);
+  }
+}
+
+.mobileNavBarDown{
+  animation:movedown .2s linear;
+}
+.mobileNavBarUp{
+  animation:moveup .2s linear;
+}
+
+@keyframes movedown {
+  from{
+    transform:translateY(-100%);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+@keyframes moveup {
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform: translateY(-100%);
+  }
+}
+
+.img-scaling-down-animated{
+  animation:imgscaling .6s ease-in-out reverse;
+}
+
+@keyframes imgscaling {
+  from{
+    transform:scale(1);
+  }
+  to{
+    transform: scale(1.15);
+  }
+}
+
+.eye-opening-img::before{
+  background-image:url('./assets/img1.jpg')
+}
+
+.contact-img::before{
+  background-image:url('./assets/contact-img1.jpg')
+}
+
+.active{
+  background: #004D43;
+  padding:2px;
+  border-radius:5px;
+  color:white;
+}
+
+.checkbox-after-img::after{
+  background-image: url('./assets/check-mark.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+
+/* Black Box Animation */
+.blackAnimationBox{
+  animation:BoxMove 3.2s ease-in-out;
+}
+
+@keyframes BoxMove {
+  50%{
+    top:0;
+    height:100vh;
+  }
+  
+  to{
+    top:-100vh;
+    height:0vh;
+  }
+}
