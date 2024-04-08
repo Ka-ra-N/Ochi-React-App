@@ -1,10 +1,10 @@
 import React from 'react'
 import principleImg1 from '../../assets/two-principle1.jpg'
 import principleImg2 from '../../assets/two-principle2.jpg'
-import DraggablePart from './DraggablePart'
 import { ClientsReviewCards } from '../../components/ClientsReview'
 import PresentableCard from './PresentableCard'
 import img1 from '../../assets/presentable-card1.jpg'
+import DraggablePart from './DraggablePart'
 
 const TwoPrinciple = () => {
   return (

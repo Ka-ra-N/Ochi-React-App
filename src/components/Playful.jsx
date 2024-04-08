@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import playfulImg from '../assets/playfulbg.jpg'
 import videoUrl from '../assets/playfulvideo.mp4'
 import Eyes from "./Eyes";
