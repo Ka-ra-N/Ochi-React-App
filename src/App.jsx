@@ -1,27 +1,40 @@
-import LocomotiveScroll from "locomotive-scroll";
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Services from "./pages/Services";
-import OurWork from "./pages/OurWork";
-import AboutUs from "./pages/AboutUs";
-import Insights from "./pages/Insights";
-import ContactUs from "./pages/ContactUs";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "./output.css";
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import './output.css';
+
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const OurWork = lazy(() => import('./pages/OurWork'));
+const AboutUs = lazy(() => import('./pages/AboutUs'));
+const Insights = lazy(() => import('./pages/Insights'));
+const ContactUs = lazy(() => import('./pages/ContactUs'));
 
 function App() {
-    AOS.init();
+  AOS.init();
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/our-services" element={<Services />} />
-        <Route path="/our-work" element={<OurWork />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/insights" element={<Insights />} />
-        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/" element={<Suspense fallback={<div>Loading...</div>}>
+          <Home />
+        </Suspense>} />
+        <Route path="/our-services" element={<Suspense fallback={<div>Loading...</div>}>
+          <Services />
+        </Suspense>} />
+        <Route path="/our-work" element={<Suspense fallback={<div>Loading...</div>}>
+          <OurWork />
+        </Suspense>} />
+        <Route path="/about-us" element={<Suspense fallback={<div>Loading...</div>}>
+          <AboutUs />
+        </Suspense>} />
+        <Route path="/insights" element={<Suspense fallback={<div>Loading...</div>}>
+          <Insights />
+        </Suspense>} />
+        <Route path="/contact-us" element={<Suspense fallback={<div>Loading...</div>}>
+          <ContactUs />
+        </Suspense>} />
       </Routes>
     </>
   );
