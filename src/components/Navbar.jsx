@@ -87,7 +87,7 @@ function Navbar({bgWhite = false}) {
         <div className="flex justify-between w-full px-6 py-4 items-center relative">
           {/* Logo */}
           <Link to="/" className="Logo lg:h-auto lg:w-auto w-20">
-            <img src="../src/assets/ochi.svg" alt="Ochi logo" />
+            <img src={ochiLogo} alt="Ochi logo" />
           </Link>
 
           {/* hamburger */}
@@ -108,7 +108,7 @@ function Navbar({bgWhite = false}) {
             <div className="dark-navbar fixed w-full flex justify-between items-center px-6 py-4 pb-16 border-b border-b-[#646464] z-[200] backdrop-blur-[200vw]">
               {/* Ochi Logo */}
               <Link to="/" className="Logo lg:h-auto lg:w-auto w-20 invert">
-                <img src="../src/assets/ochi.svg" alt="Ochi logo" />
+                <img src={ochiLogo} alt="Ochi logo" />
               </Link>
 
               {/* Cross Menu Button */}
