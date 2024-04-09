@@ -1,24 +1,46 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Eyes from "./Eyes";
 
 const BlackAnimation = ({ pageName }) => {
-  const animationTimeout = useRef(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
+    const handleAnimationStart = () => setIsAnimating(true);
+    const handleAnimationEnd = () => setIsAnimating(false);
 
-    document.body.classList.add('overflow-hidden');
-
-    const animationDuration = 2800; 
-    animationTimeout.current = setTimeout(() => {
-      document.body.classList.remove('overflow-hidden');
-    }, animationDuration);
+    const animationElement = document.querySelector(".blackAnimationBox");
+    animationElement.addEventListener("animationstart", handleAnimationStart);
+    animationElement.addEventListener("animationend", handleAnimationEnd);
 
     return () => {
-      if (animationTimeout.current) {
-        clearTimeout(animationTimeout.current);
-      }
+      animationElement.removeEventListener(
+        "animationstart",
+        handleAnimationStart
+      );
+      animationElement.removeEventListener("animationend", handleAnimationEnd);
     };
-  }, []); 
+  }, []);
+
+  const handleScroll = (event) => {
+    if (isAnimating) {
+      event.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    if (isAnimating) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("scroll", handleScroll, { passive: true });
+    } else {
+      document.body.style.overflow = "";
+      document.removeEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [isAnimating]);
 
   return (
     <div

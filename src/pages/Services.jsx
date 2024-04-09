@@ -20,7 +20,7 @@ function Services() {
   },[])
 
   return (
-    <section className='bg-[#f1f1f1]'>
+    <section className='max-w-full min-h-full relative bg-[#f1f1f1] overflow-x-hidden'>
       <BlackAnimation pageName={"services"}/>
       <Headroom>
         <Navbar />
