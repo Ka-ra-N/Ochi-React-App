@@ -560,6 +560,10 @@ video {
   position: sticky;
 }
 
+.inset-0 {
+  inset: 0px;
+}
+
 .-bottom-28 {
   bottom: -7rem;
 }
@@ -1334,6 +1338,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 
 .overflow-y-scroll {
