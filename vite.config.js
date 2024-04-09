@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist', // Specify the output directory for the production build
-    assetsDir: '', // Output assets directly in the root directory
+    assetsDir: 'assets', // Output assets directly in the root directory
     sourcemap: false, // Disable sourcemaps in production
   },
 });
